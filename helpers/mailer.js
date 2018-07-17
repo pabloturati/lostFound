@@ -16,7 +16,7 @@ exports.sendActivationLink = (user) => {
         from: '"Lost&Found" <adminaplicacion@gmail.com>', // sender address
         to: user.email, // list of receivers
         subject: 'Bienvenido ✔', // Subject line
-        html: `<h2>Activa tu cuenta: <a href="http://localhost:3000/activation/${user._id}"> Click aqui </a></h2>`, // plain text body
+        html: `<h2>Activa tu cuenta: <a href="https://radiant-reaches-45815.herokuapp.com/activation"> Click aqui </a></h2>`, // plain text body
         //html: '<b>Hello world?</b>' // html body
     };
     transporter.sendMail(options, (err,info)=>{
