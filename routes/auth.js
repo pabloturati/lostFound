@@ -19,13 +19,13 @@ function isLoggedIn(req,res,next){
     return res.redirect('/login?next=/activation')
 }
 
-router.get('/activation', isLoggedIn, (req,res,next)=>{
-    User.findByIdAndUpdate(req.user._id, {active:true}, {new:true})
-    .then(user=>{
-        res.send('Activado, gracias ' + user.username);
-    })
-    .catch(e=>next(e))
-})
+// router.get('/activation', isLoggedIn, (req,res,next)=>{
+//     User.findByIdAndUpdate(req.user._id, {active:true}, {new:true})
+//     .then(user=>{
+//         res.send('Activado, gracias ' + user.username);
+//     })
+//     .catch(e=>next(e))
+// })
 
 router.get('/signup', (req,res,next)=>{
     res.render('auth/signup')
