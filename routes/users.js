@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const User = require('../models/User');
 const uploadCloud = require('../helpers/cloudinary');
+const item = require('../models/Item')
 
 
 function isLoggedIn(req,res,next){
@@ -42,8 +43,11 @@ router.post('/users', (req,res, next)=>{
 // });
 
 router.get('/general', isLoggedIn, (req,res,next)=>{
-    // res.send("hola desde profile");
-    res.render('users/general')
+    item.find()
+    .then(items=>{
+    res.render('users/general',{items});
+    })
+    .catch(e=>console.log(e));
 });
 
 module.exports = router;

@@ -10,23 +10,41 @@ nav{
   
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+  align-items: center; 
 }
 
-nav>div {
+#topNavA{
   margin: 50px;
-  background-color: white;
-  padding: 5px;
-  border-radius: 3px;
+  height: 100px;
+  width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+#topNavA div {
+  height: 80px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 3px;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#logo1{
+  padding: 5px;
+}
+
 nav>div>h2{
   padding:0;
   margin:0;
   display: inline-block;
-  width: 180px;
+  width: 160px;
   font-size: 16px;
-  padding-left: 5px;
+  padding-left: 10px;
 }
 nav>div img {
   width:60px;
@@ -40,9 +58,12 @@ nav>ul{
   margin: 50px;
   padding: 0;
   height: 50px;
-  width: 250px;
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+
+  // justify-content: space-between;
+  align-items: center;
+
 }
 
 nav>ul li{
@@ -51,16 +72,22 @@ nav>ul li{
   list-style: none;
   display: flex;
   align-items: center;
+  justify-content: center;
   border-style: solid;
   border-width: 1px;
   border-radius: 10px;
   padding: 0 5px 0 5px;
   color: black;
+  text-align: center;
+  margin-left: 20px;
+  width: 80px;
 }
 
 nav a{
   color: black;
   text-decoration: none;
+
+  text-align: center;
 }
 
 
@@ -72,8 +99,113 @@ nav>ul li:hover{
 
 section{
   width:80%;
-  height: 900px;
-  background-color: gray;
   margin: auto;
-  margin-top:8px;
+  padding: 1%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+
+div.itemDiv{
+  display: flex;
+  height: 220px;
+  justify-content: space-around; 
+  align-items: center;
+  width:90%;
+  background-color: rgba(255,165,0,.8);
+  margin-top:1%;
+  box-sizing: border-box;
+}
+div.predetails{
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+  align-content: flex-start;
+
+}
+
+.divTable
+{
+  display: table;
+  width:auto;
+  // background-color:#eee;
+  // border-radius: 15px;
+}
+
+.divRow
+{
+  width:auto;
+  display: flex;
+  border-top: 1px solid rgb(225,125,48);
+  padding: 2px 0 2px 0;
+}
+.boldC
+{
+  font-weight: bold;
+}
+
+.divCell
+{
+  float:left;/*fix for  buggy browsers*/
+  display:table-column;
+  width:100%;
+  padding: 2px;
+  
+}
+section img{
+  padding: 5px;
+  width: 150px;
+  max-height: 170px;
+}
+.mapItem{
+  width: 200px;
+  height: 170px;
+  background-color: peru;
+  margin: 5px 5px 5px 0;
+}
+
+section.loginClass{
+  width: 300px;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+section.loginClass form{
+  padding: 30px 0 30px 0;
+  height: 300px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid black;
+  background-color: rgb(225,125,48);
+  box-sizing: border-box;
+}
+
+section.loginClass div{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+section.loginClass label{
+  margin: 5px;
+  font-weight: bold;
+}
+
+section.loginClass input{
+  height: 30px;
+}
+
+#addNew{
+  height: 50px;
+
+  background-color: green;
 }

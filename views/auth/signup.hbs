@@ -1,19 +1,42 @@
-<h1>Signup</h1>
-<p style="color:red">
-    {{#if err}}{{err}}{{/if}}
-</p>
-<form validated action="/signup" method="post">
-    <p>
-        <input value="{{username}}" required placeholder="Tu nombre de usuario" name="username" type="text">
-    </p>
-        <p>
-        <input value="{{email}}" required placeholder="Tu correo de usuario" name="email" type="email">
-    </p>
-        <p>
+<nav>
+    <a id="topNavA" href="/">
+        <div>
+            <img id="logo1"src="/images/logoMetro1.png" alt="LogoMetro" width="70">
+            <img src="/images/logoMetro2.png" alt="LogoMetrobus" width="70">
+            <h2 id="topName"> Sistema de Recuperación de Articulos Perdidos</h2>
+        </div>
+    </a>
+    <img src="/images/logoCdMx.png" alt="Ciudad de Mexico" width="200">
+    <ul>
+        <a  class="navBut" href="/login" id="loginButt" class="userAdmin"><li>Entra a tu Portal</li></a>
+        {{!-- <a href="/signup" id="registerButt" class="userAdmin"><li>Regístrate</li></a> --}}
+    </ul>
+</nav>
+
+
+<section class="loginClass">
+    <h1>Signup</h1>
+    <form validated action="/signup" method="post">
+        <div>
+            <label for="username">Ingresa tu email</label>
+            <input value="{{username}}" required placeholder="Tu nombre de usuario" name="username" type="text">
+        </div>
+        <div>
+            <label for="email">Ingresa tu corre electrónico</label>
+            <input value="{{email}}" required placeholder="Tu correo de usuario" name="email" type="email">
+        </div>
+        <div>
+            <label for="password">Ingresa tu contraseña</label>
         <input value="{{password}}" required placeholder="Tu password de usuario" name="password" type="password">
-    </p>
-        <p>
-        <input value="{{password2}}" required placeholder="repite" name="password2" type="password">
-    </p>
-    <input type="submit">
-</form>
+        </div>
+        <div>
+            <label for="password2">Ingresa nuevamente tu contraseña</label>
+            <input value="{{password2}}" required placeholder="repite" name="password2" type="password">
+        </div>
+         <input type="submit">
+    </form>
+</section>
+
+<p style="color:red">
+        {{#if err}}{{err}}{{/if}}
+</p>

@@ -1,13 +1,33 @@
+<nav>
+    <a id="topNavA" href="/">
+        <div>
+            <img id="logo1"src="/images/logoMetro1.png" alt="LogoMetro" width="70">
+            <img src="/images/logoMetro2.png" alt="LogoMetrobus" width="70">
+            <h2 id="topName"> Sistema de Recuperación de Articulos Perdidos</h2>
+        </div>
+    </a>
+    <img src="/images/logoCdMx.png" alt="Ciudad de Mexico" width="200">
+    <ul>
+        {{!-- <a href="/login" id="loginButt" class="userAdmin"><li>Entra a tu Portal</li></a> --}}
+        <a  class="navBut" href="/signup" id="registerButt" class="userAdmin"><li>Regístrate</li></a>
+    </ul>
+</nav>
 
-<h1>Login</h1>
 
-<form validated action="/login" method="post">
-        <p>
-        <input required placeholder="Tu correo de usuario" name="email" type="email">
-    </p>
-        <p>
-        <input required placeholder="Tu password de usuario" name="password" type="password">
-    </p>
-    <input name="next" value="{{next}}" type="hidden">
-    <input type="submit">
-</form>
+<section class="loginClass">
+    <h1>Por favor inicia sesión</h1>
+    <form validated action="/login" method="post">
+        <div>
+            <label for="email">Ingresa tu email</label>
+            <input required placeholder="Tu correo de usuario" name="email" type="email">
+        </div>
+        <div>
+            <label for="password">Ingresa tu password</label>
+            <input required placeholder="Tu password de usuario" name="password" type="password">
+        </div>
+        <div>
+            <input name="next" value="{{next}}" type="hidden">
+            <input type="submit">
+        </div>
+    </form>
+</section>
