@@ -69,11 +69,26 @@ router.get('/logout', (req,res,next)=>{
     res.redirect('/login')
 });
 
-router.get('/activation/:id', (req,res)=>{
-    var id = req.params.id
-    User.findByIdAndUpdate(id, {active:true}, {new:true})
-    .then(nuevoUsuario=>res.send(nuevoUsuario))
-    .catch(e=>console.log(e))
+router.get('/activation', (req,res)=>{
+        var id = req.params.id
+        User.findByIdAndUpdate(id, {active:true}, {new:true})
+        .then(nuevoUsuario=>{
+            console.log("usuario activo")
+            res.redirect("/login")
+            //res.send(nuevoUsuario)
+        })
+        .catch(e=>console.log(e))
 })
+
+
+// router.get('/activation/:id', (req,res)=>{
+//     var id = req.params.id
+//     User.findByIdAndUpdate(id, {active:true}, {new:true})
+//     .then(nuevoUsuario=>{
+//         res.json(nuevoUsuario)
+//         //res.send(nuevoUsuario)
+//     })
+//     .catch(e=>console.log(e))
+// })
 
 module.exports = router;
