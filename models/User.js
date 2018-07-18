@@ -22,6 +22,12 @@ const userSchema = new Schema({
             ref: "Item"
         }
     ],
+    itemsFound:[
+        {
+            type: Schema.Types.ObjectId,
+            ref: "Item"
+        }
+    ]
 },{
     timestamps:{
         createdAt: 'created_at',

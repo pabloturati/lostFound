@@ -33,18 +33,18 @@ const itemSchema = new Schema({
         default: "Centro de recuperacion del Metro"
     },
     detalle: String,
-    owner:[
+    owner:
         {
             type: Schema.Types.ObjectId,
             ref: "User"
         }
-    ],
-    founder:[
+    ,
+    founder:
         {
             type: Schema.Types.ObjectId,
             ref: "User"
         }
-    ],
+    ,
 },{
     timestamps:{
         createdAt: 'created_at',

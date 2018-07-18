@@ -1,51 +1,70 @@
+<nav>
+    <a id="topNavA" href="/">
+        <div>
+            <img id="logo1"src="/images/logoMetro1.png" alt="LogoMetro" width="70">
+            <img src="/images/logoMetro2.png" alt="LogoMetrobus" width="70">
+            <h2 id="topName"> Sistema de Recuperación de Articulos Perdidos</h2>
+        </div>
+    </a>
+    <img src="/images/logoCdMx.png" alt="Ciudad de Mexico" width="200">
+    <ul>
+        <a  class="navBut" href="/profile" id="registerButt" class="userAdmin"><li>Perfil</li></a>
+        <a  class="navBut" href="/logout" id="registerButt" class="userAdmin"><li>Salir</li></a>
+    </ul>
+</nav>
 
-<h2>Agrega un nuevo item</h2>
-
-<form action="newItem" method="POST" enctype="multipart/form-data">
-<p>Lugar
-    <input type="radio" name="trasporte" value="Metro"> Metro<br>
-    <input type="radio" name="trasporte" value="Metrobus"> Metrobus<br>
-</p>
-
-<p> Línea
-     {{!-- <input type="name" placeholder="E nombre de tu producto" type="text"> --}}
-    <select name="linea">
-        <option value="L1">Línea 1</option>
-        <option value="L2">Línea 2</option>
-        <option value="L3">Línea 3</option>
-        <option value="L4">Línea 4</option>
-        <option value="L5">Línea 5</option>
-        <option value="L6">Línea 6</option>
-        <option value="L7">Línea 7</option>
-        <option value="L8">Línea 8</option>
-        <option value="L9">Línea 9</option>
-        <option value="L10">Línea 10</option>
-        <option value="L11">Línea 11</option>
-        <option value="L12">Línea 12</option>
-    </select>
-</p>
-
-<p>Estación
-    <input type="text" placeholder="Estacion" type="text" name="estacion">
-</p>
-
-<p> Objeto
-    <select name="objeto">
-        <option value="Cartera">Cartera</option>
-        <option value="Prenda">Prenda</option>
-        <option value="Celular">Celular</option>
-        <option value="Identificacion">Identificación</option>
-        <option value="Otro">Otro</option>
-    </select>
-</p>
-
-<p>
-    <textarea name="detalle" rows="10" cols="30">Provee una breve descripción 
-    </textarea>
-</p>
-
-<p>
-    <input name="photoURL" multiple type="file">
-</p>
-<input type="submit" value="enviar">
-</form>
+<div class="titleDiv">
+    <h2>Agrega un nuevo articulo encontrado</h2>
+</div>
+<section class="addItem">
+    <form action="newItem" method="POST" enctype="multipart/form-data">
+        <div class="inputSections">
+            <label for="trasporte">Ingresa el medio de transporte donde fue encontrado
+                <input type="radio" name="trasporte" value="Metro"> Metro
+                <input type="radio" name="trasporte" value="Metrobus"> Metrobus
+            </label>
+        </div>
+        <div class="inputSections">
+            <label for="linea">Ingresa la Línea
+            <select name="linea">
+                <option value="L1">Línea 1</option>
+                <option value="L2">Línea 2</option>
+                <option value="L3">Línea 3</option>
+                <option value="L4">Línea 4</option>
+                <option value="L5">Línea 5</option>
+                <option value="L6">Línea 6</option>
+                <option value="L7">Línea 7</option>
+                <option value="L8">Línea 8</option>
+                <option value="L9">Línea 9</option>
+                <option value="L10">Línea 10</option>
+                <option value="L11">Línea 11</option>
+                <option value="L12">Línea 12</option>
+            </select>
+            </label>
+        </div>
+        <div class="inputSections">
+            <label for="estacion">Ingresa la Estación más cercana al sitio donde se encontró
+                <input type="text" placeholder="Estacion" type="text" name="estacion">
+            </label>
+        </div>
+        <div class="inputSections">
+            <label for="objeto">Ingresa la categoria del objeto perdido</label>
+                <select name="objeto">
+                    <option value="Cartera">Cartera</option>
+                    <option value="Prenda">Prenda</option>
+                    <option value="Celular">Celular</option>
+                    <option value="Identificacion">Identificación</option>
+                    <option value="Otro">Otro</option>
+                </select>
+        </div>
+        <div class="inputSections verticalSections">
+            <label for="detalle">Provee una breve descripción</label>
+                <textarea name="detalle" rows="10" cols="30" placeholder="Provee una breve descripción"></textarea>
+        </div>
+        <div class="inputSections verticalSections">
+            <label for="photoURL">Toma una fotografía</label>
+                <input name="photoURL" multiple type="file">
+        </div>
+        <input id="submitNewItem" type="submit" value="enviar">
+    </form>
+</section>

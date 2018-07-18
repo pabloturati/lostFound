@@ -1,0 +1,58 @@
+<nav>
+    <a id="topNavA" href="/">
+        <div>
+            <img id="logo1"src="/images/logoMetro1.png" alt="LogoMetro" width="70">
+            <img src="/images/logoMetro2.png" alt="LogoMetrobus" width="70">
+            <h2 id="topName"> Sistema de Recuperación de Articulos Perdidos</h2>
+        </div>
+    </a>
+    <img src="/images/logoCdMx.png" alt="Ciudad de Mexico" width="200">
+    <ul>
+        <a  class="navBut" href="/profile" id="registerButt" class="userAdmin"><li>Perfil</li></a>
+        <a  class="navBut" href="/profile" id="registerButt" class="userAdmin"><li>Buscar</li></a>
+        <a  class="navBut" href="/logout" id="registerButt" class="userAdmin"><li>Salir</li></a>
+    </ul>
+</nav>
+
+
+<div class="titleDiv">
+    <h2>Nuevo objeto reportado. ¡Muchas gracias por tu ayuda! {{thisItem.founder}}</h2>
+</div>
+
+<section>
+    <div class="itemDiv">
+        <img src="{{thisItem.photoURL}}" alt="imgObjeto" width="100">
+        {{!-- Table --}}
+        <div class="predetails">
+            <div class="divTable">
+                <div class="divRow">
+                    <div class="divCell boldC">Reportado</div>
+                    <div class="divCell">{{thisItem.created_at}}</div>
+                </div>
+                <div class="divRow">
+                    <div class="divCell boldC">Transporte</div>
+                    <div class="divCell">{{thisItem.trasporte}}</div>
+                </div>
+                <div class="divRow">
+                    <div class="divCell boldC">Línea:</div>
+                    <div class="divCell">{{thisItem.linea}}</div>
+                </div>
+                <div class="divRow">
+                    <div class="divCell boldC">Estación</div>
+                    <div class="divCell">{{thisItem.estacion}}</div>
+                </div>
+                <div class="divRow">
+                    <div class="divCell boldC">Posición actual:</div>
+                    <div class="divCell">{{thisItem.currlocation}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="mapItem">
+            {{item.currlocation}}
+        </div>
+    </div>
+</section>
+
+<a href="/general" id="addNew">
+    <h1>Da click aquí para regresar al listado</h1>
+</a>

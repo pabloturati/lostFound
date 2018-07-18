@@ -49,7 +49,6 @@ nav > img {
 nav > ul {
   margin: 50px;
   padding: 0;
-  height: 50px;
   display: flex;
   flex-wrap: wrap;
   align-items: center; }
@@ -68,6 +67,7 @@ nav > ul li {
   color: black;
   text-align: center;
   margin-left: 20px;
+  margin-top: 20px;
   width: 80px; }
 
 nav a {
@@ -76,13 +76,35 @@ nav a {
   text-align: center; }
 
 nav > ul li:hover {
-  background-color: gray;
-  color: white; }
+  text-decoration: underline; }
+
+div.titleDiv {
+  width: 70%;
+  margin: auto;
+  margin-top: 7px;
+  background-color: white;
+  text-align: center;
+  border: 1px solid #e17d30;
+  padding: 5px;
+  border-radius: 10px; }
+
+div.titleDiv h2, h3 {
+  width: 80%;
+  margin: auto;
+  padding: 10px;
+  font-size: 19px;
+  color: black; }
+
+div.titleDiv h2 {
+  font-size: 16px; }
+
+div.titleDiv h3 {
+  font-size: 14px; }
 
 section {
   width: 80%;
   margin: auto;
-  padding: 1%;
+  padding: 0%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column-reverse;
@@ -95,9 +117,10 @@ div.itemDiv {
   justify-content: space-around;
   align-items: center;
   width: 90%;
-  background-color: rgba(255, 165, 0, 0.8);
   margin-top: 1%;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  border: 1px solid #e17d30;
+  border-radius: 15px; }
 
 div.predetails {
   display: flex;
@@ -152,9 +175,9 @@ section.loginClass form {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  border: 1px solid black;
-  background-color: #e17d30;
-  box-sizing: border-box; }
+  border: 1px solid #e17d30;
+  box-sizing: border-box;
+  border-radius: 15px; }
 
 section.loginClass div {
   display: flex;
@@ -169,8 +192,69 @@ section.loginClass label {
 section.loginClass input {
   height: 30px; }
 
-#addNew {
+a#addNew {
+  display: block;
+  font-size: 10px;
   height: 50px;
-  background-color: green; }
+  width: 650px;
+  margin: auto;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #e17d30;
+  border-radius: 10px;
+  color: black;
+  text-decoration: none;
+  font-size: 9px; }
+
+a#addNew:hover {
+  text-decoration: underline;
+  color: black; }
+
+section.addItem > form {
+  padding: 30px 0 30px 0;
+  margin-top: 10px;
+  height: 500px;
+  width: 89%;
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid #e17d30;
+  border-radius: 15px;
+  margin-bottom: 50px; }
+
+section.addItem label {
+  margin: 5px;
+  font-weight: bold; }
+
+section.addItem input {
+  margin-left: 20px;
+  box-sizing: border-box; }
+
+section.addItem select {
+  margin-left: 20px; }
+
+div.inputSections {
+  display: flex;
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around; }
+
+.inputSections label {
+  display: flex;
+  justify-content: center; }
+
+div.verticalSections {
+  display: flex;
+  flex-direction: column;
+  width: 300px; }
+
+#submitNewItem {
+  width: 200px;
+  height: 50px; }
 
 /*# sourceMappingURL=style.css.map */
