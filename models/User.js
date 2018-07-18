@@ -9,13 +9,17 @@ const userSchema = new Schema({
         type: String,
         default: 'http://botornot.co/blog/wp-content/uploads/2015/04/fakefollowers2-554x255.png'
     },
+    userType:{
+        type: String,
+        enum:["user","admin"],
+        default: "user"
+    },
     active: {
         type: Boolean,
         default: false
     },
     username:String,
     email: String,
-    photoURL: String,
     lostItems:[
         {
             type: Schema.Types.ObjectId,

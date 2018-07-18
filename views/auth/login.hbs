@@ -13,7 +13,8 @@
 </nav>
 
 <section class="loginClass">
-    <h1>Por favor inicia sesión</h1>
+    <h2>Por favor inicia sesión</h2>
+
     <form validated action="/login" method="post">
         <div>
             <label for="email">Ingresa tu email</label>
@@ -29,3 +30,7 @@
         </div>
     </form>
 </section>
+
+<p id="err message" style="color:red; text-align: center; font-size: 18px" script="document.getElementById("myForm").reset();">
+        {{#if err}}{{err}}{{/if}}
+</p>

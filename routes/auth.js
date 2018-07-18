@@ -61,7 +61,22 @@ router.get('/profile', isLoggedIn, (req,res,next)=>{
 router.post('/login', passport.authenticate('local'), (req,res,next)=>{
     if(req.body.next) res.redirect(req.body.next);
     req.app.locals.loggedUser = req.user;
-    res.redirect('/general')
+
+    if(req.user.userType === "admin") return res.send("Soy administrador")
+    
+    if(req.user.active==true)
+    {
+        res.redirect('/general')
+    }
+    else
+    {   
+        req.body.err = "Tu usuario no está activo"
+        res.render('auth/login', req.body)
+        console.log("entre")
+        req.logout();
+        // res.redirect('/login')
+        //res.send("por favor confirma tu email")
+    }
 });
 
 router.get('/logout', (req,res,next)=>{
@@ -69,8 +84,9 @@ router.get('/logout', (req,res,next)=>{
     res.redirect('/login')
 });
 
-router.get('/activation', (req,res)=>{
+router.get('/activation/:id', (req,res)=>{
         var id = req.params.id
+        console.log(id);
         User.findByIdAndUpdate(id, {active:true}, {new:true})
         .then(nuevoUsuario=>{
             console.log("usuario activo")
@@ -80,15 +96,5 @@ router.get('/activation', (req,res)=>{
         .catch(e=>console.log(e))
 })
 
-
-// router.get('/activation/:id', (req,res)=>{
-//     var id = req.params.id
-//     User.findByIdAndUpdate(id, {active:true}, {new:true})
-//     .then(nuevoUsuario=>{
-//         res.json(nuevoUsuario)
-//         //res.send(nuevoUsuario)
-//     })
-//     .catch(e=>console.log(e))
-// })
 
 module.exports = router;

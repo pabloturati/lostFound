@@ -37,7 +37,7 @@ nav > div > h2 {
   margin: 0;
   display: inline-block;
   width: 160px;
-  font-size: 16px;
+  font-size: 10px;
   padding-left: 10px; }
 
 nav > div img {
@@ -70,6 +70,19 @@ nav > ul li {
   margin-top: 20px;
   width: 80px; }
 
+.titleDiv > h2 {
+  padding: 3px;
+  font-weight: bold; }
+
+#topName {
+  font-size: 18px;
+  text-align: left;
+  padding-left: 12px; }
+
+#topNavA:hover {
+  color: black;
+  text-decoration: none; }
+
 nav a {
   color: black;
   text-decoration: none;
@@ -92,7 +105,6 @@ div.titleDiv h2, h3 {
   width: 80%;
   margin: auto;
   padding: 10px;
-  font-size: 19px;
   color: black; }
 
 div.titleDiv h2 {
@@ -121,6 +133,22 @@ div.itemDiv {
   box-sizing: border-box;
   border: 1px solid #e17d30;
   border-radius: 15px; }
+
+.btn {
+  background-color: white;
+  color: black;
+  border-color: black;
+  outline: none; }
+
+.btn:hover {
+  background-color: white;
+  color: black;
+  border-color: black;
+  text-decoration: underline;
+  outline: none; }
+
+.btn:active {
+  outline: none; }
 
 div.predetails {
   display: flex;
@@ -158,6 +186,9 @@ section img {
   height: 170px;
   background-color: peru;
   margin: 5px 5px 5px 0; }
+
+h2 {
+  font-size: 22px; }
 
 section.loginClass {
   width: 300px;

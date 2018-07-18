@@ -11,8 +11,7 @@ function isLoggedIn(req,res,next){
 
 router.get('/users/:id', (req,res,next)=>{
     User.findById(req.params.id)
-    // .populate('tweets')
-    // .populate('followers')
+
     .then(user=>{
         if(!user) res.redirect('/users');
         res.render('users/profile', user)

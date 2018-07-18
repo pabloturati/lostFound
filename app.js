@@ -79,9 +79,7 @@ const items = require('./routes/items')
 app.use('/', users);
 app.use('/', auth);
 app.use('/', index);
-app.use('/items', items)
-
-
+app.use('/items', items);
 
 //app.use('/items', items)
 

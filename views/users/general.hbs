@@ -14,7 +14,7 @@
 </nav>
 
 <a href="/items/newItem" id="addNew">
-    <h1>Da click aquí si deseas reportar un objeto encontrado</h1>
+    <h2>Da click aquí si deseas reportar un objeto encontrado</h2>
 </a>
 
 <section>
@@ -49,6 +49,38 @@
             <div class="mapItem">
                 {{item.currlocation}}
             </div>
+
+            <button id="{{item.id}}"  type="button" class="btn btn-primary" data-toggle="modal" data-target="#a">
+                ¿Es tuyo?
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="a" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Como recuperarlo</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div  class="modal-body">
+                    <img src="/images/atencionciudadana.png" width="200">
+                    <p>Responsable de la Unidad de Orientación e Información: Ana María Muñiz Flores 
+                    Teléfonos: 5709-1133 ext. 5051 y 5009 o 5627.4950 y 5627.4741 
+                    Lugar de atención presencial: Av. Balderas No. 58 Primer Piso, Colonia Centro, Delegación Cuauhtémoc C.P. 06010 
+                    Horario: Lunes a viernes de 9:00 a 15:00 horas. 
+                    Correo: unidad_de_orientacion@metro.cdmx.gob.mx
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+                </div>
+            </div>
+            </div>
+            <!-- /Modal -->
+
         </div>
     {{/each}}
 </section>

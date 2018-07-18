@@ -8,6 +8,9 @@ router.get('/', (req, res, next) => {
   
   item.find()
   .then(items=>{
+    items.forEach(item=>{
+      item.hashID = "#"+item._id;
+    })
     res.render('index',{items});
   })
   .catch(e=>console.log(e));
