@@ -1,6 +1,8 @@
 {{!-- <h1>{{title}}</h1> --}}
 {{!-- <p>Welcome to {{title}}</p> --}}
 
+
+
 <nav>
     <a id="topNavA" href="/">
         <div>
@@ -52,12 +54,64 @@
                     <div class="divRow">
                         <div class="divCell boldC">Posición actual:</div>
                         <div class="divCell">{{item.currlocation}}</div>
+
                     </div>
                 </div>
             </div>
-            <div class="mapItem">
-                {{item.currlocation}}
+            <div class="mapItem" >
+                {{!-- <script src="https://maps.googleapis.com/maps/api/staticmap?center=19.4280081,-99.1509341&zoom=6&key=AIzaSyALDtubZlaBWtfejnW6E0izt51Mf8i3Sj8"></script>    --}}
+                  {{!-- <img src="https://maps.googleapis.com/maps/api/staticmap?center=19.4280081,-99.1509341&size=250x250&zoom=16&key=AIzaSyALDtubZlaBWtfejnW6E0izt51Mf8i3Sj8" alt="no existe">  --}}
+                 <a href="https://maps.googleapis.com/maps/api/staticmap?center=metro+{{item.estacion}},Mexico&size=1000x900&zoom=16&key=AIzaSyALDtubZlaBWtfejnW6E0izt51Mf8i3Sj8"> <img src="https://maps.googleapis.com/maps/api/staticmap?center=metro+{{item.estacion}},Mexico&size=250x250&zoom=16&key=AIzaSyALDtubZlaBWtfejnW6E0izt51Mf8i3Sj8" alt="no existe"> </a>      
             </div>
         </div>
+
+
     {{/each}}
+
 </section>
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALDtubZlaBWtfejnW6E0izt51Mf8i3Sj8"></script>
+ {{!-- <script>
+     let center = {
+                lat:19.4280081,
+                lng:-99.1509341
+            };
+ </script> --}}
+        {{!-- <script>
+            const maps = [];
+            let center = {
+                lat:19.4280081,
+                lng:-99.1509341
+            };
+            let title = "se encontro"
+
+            const elements =  document.getElementsByClassName('mapItem');
+            for(var i=0;i<elements.length;i++){
+                const map = new google.maps.Map(
+                    elements[0],
+            
+                {
+                    center,
+                    zoom:15
+                }
+            )
+            maps.push(map)
+            }
+            
+
+
+//            const map = new google.maps.Map(
+  //              document.getElementsByClassName('mapItem'),
+    //            {
+      //              center,
+        //            zoom:15
+          //      }
+            //) 
+//            const marker = new google.maps.Marker({
+  //              maps[0],
+    //            position:center,
+      //          title,
+        //        animation: google.maps.Animation.BOUNCE
+          //  })
+
+        </script> --}}
+
