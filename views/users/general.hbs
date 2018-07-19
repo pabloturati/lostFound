@@ -51,7 +51,7 @@
                <a href="https://maps.googleapis.com/maps/api/staticmap?center=metro+{{item.estacion}},Mexico&size=1000x900&zoom=16&key=AIzaSyALDtubZlaBWtfejnW6E0izt51Mf8i3Sj8"> <img src="https://maps.googleapis.com/maps/api/staticmap?center=metro+{{item.estacion}},Mexico&size=250x250&zoom=16&key=AIzaSyALDtubZlaBWtfejnW6E0izt51Mf8i3Sj8" alt="no existe"> </a>
             </div>
 
-            <button id="{{item.id}}"  type="button" class="btn btn-primary" data-toggle="modal" data-target="#a">
+            <button onclick="test(event)" id="{{item.id}}"  type="button" class="btn btn-primary" data-toggle="modal" data-target="#a">
                 ¿Es tuyo?
             </button>
 
@@ -60,18 +60,26 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Como recuperarlo</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Como recuperarlo </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div  class="modal-body">
                     <img src="/images/atencionciudadana.png" width="200">
-                    <p>Responsable de la Unidad de Orientación e Información: Ana María Muñiz Flores 
-                    Teléfonos: 5709-1133 ext. 5051 y 5009 o 5627.4950 y 5627.4741 
+                    <p>Responsable de la Unidad de Orientación e Información: <br>
+                        Ana María Muñiz Flores 
+                    Teléfonos: 5709-1133 ext. 5051 y 5009 o 5627.4950 y 5627.4741 <br>
                     Lugar de atención presencial: Av. Balderas No. 58 Primer Piso, Colonia Centro, Delegación Cuauhtémoc C.P. 06010 
+                    <br>
                     Horario: Lunes a viernes de 9:00 a 15:00 horas. 
                     Correo: unidad_de_orientacion@metro.cdmx.gob.mx
+                    </p>
+                    <p>
+                    <br>
+                    El código de recuperación es: <b><span id="recoveryCode">holder</span></b>
+                    <br>
+                    No olvides llevarlo para recuperar tu pertenencia. 
                     </p>
                 </div>
                 <div class="modal-footer">
@@ -86,3 +94,10 @@
     {{/each}}
 </section>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALDtubZlaBWtfejnW6E0izt51Mf8i3Sj8"></script>
+
+<script>
+    function test(e){
+        console.log(e.target)
+        document.getElementById("recoveryCode").innerHTML = e.target.id;
+    }
+</script>

@@ -70,9 +70,17 @@
         </article>
         <article class="bodyDer">
             <h3>Artículos Recuperados</h3>
-            {{#each itemsFound}}
+            {{#each lostItems}}
                 <div class="itemDivProfile">
-                {{this.objeto}}
+                <img src="{{this.photoURL}}" alt="img" style="padding: 5px">
+                <p>
+                    <b>Objeto reportado:</b> {{this.objeto}} <br>
+                    <b>Medio de trasporte donde se encontró:</b> {{this.trasporte}} <br>
+                    <b>Línea dond ese encontró:</b> {{this.linea}} <br>
+                    <b>Estacion más cercana:</b> {{this.estacion}}
+                    <b>Posición actual:</b> {{this.currlocation}}
+                    <b>¿Ya fue recuperado?</b> {{this.found}}
+                </p>
                 </div>
             {{/each}}   
         </article>
@@ -91,6 +99,8 @@
         });
 
         var onStar = "{{ranking}}";
+        console.log("{{ranking}}");
+        console.log(onStar);
             var stars = $('#stars li').parent().children('li.star');
             
             for (i = 0; i < onStar; i++) {

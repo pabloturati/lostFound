@@ -57,21 +57,23 @@ router.get('/login', isAuth, (req,res,next)=>{
 
 router.post('/login', passport.authenticate('local'), (req,res,next)=>{
     if(req.body.next) res.redirect(req.body.next);
+    
     req.app.locals.loggedUser = req.user;
 
+ 
     if(req.user.userType === "admin") 
     {
          res.redirect('/administrator');
+         console.log("entre al administrador");
     }
-    if(req.user.active == true)
+    else if(req.user.active == true)
     {
         res.redirect('/general')
     }
     else
     {   
-        req.body.err = "Tu usuario no está activo"
+        req.body.err = "Tu usuario no está activo. Favor de activarlo desde el correo electrónico registrado"
         res.render('auth/login', req.body)
-        console.log("entre")
         req.logout();
     }
 });

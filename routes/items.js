@@ -26,17 +26,14 @@ router.post('/newItem', uploadCloud.single('photoURL'), (req,res, next) => {
     
     req.body.photoURL = req.file.url;
     req.body.founder = req.user._id;
-    console.log(req.body.founder);
+
+
     Item.create(req.body)
     .then(thisItem=>{        
-        User.findByIdAndUpdate(req.user._id, {$push: {itemsFound: thisItem}}, {new:true})
+        User.findByIdAndUpdate(req.user._id, {$push:{itemsFound: thisItem}, $inc:{ranking: 1}}, {new:true})
         .then(r =>{
-            console.log(r)
             thisItem.founder=r
-            console.log(thisItem)
-            console.log(thisItem.founder);
             res.render("items/success",{thisItem})
-            //res.json(thisItem)
         })
         
     })
@@ -53,10 +50,20 @@ router.post('/updateOwner', (req,res)=>{
     let userEmail= req.body.emailUsuario; //email del usuario
     let userID;
 
-    console.log("entre");
-    console.log(req.body);
-    // console.log(req.body);
+    console.log(userEmail);
+    console.log(idItem);
 
+    //Encontar al usuario en base a su correo y devolver su id
+    User.findOne({email: userEmail})
+    .then(user=>{
+        userID = user.id;
+        Item.findByIdAndUpdate(idItem, {owner: userID, found: true}, {new: true})
+        .then(thisItem=>{
+            User.findByIdAndUpdate(userID, {$push: {lostItems: thisItem}}, {new:true})
+                .then(user=>
+                res.render('users/admi',{thisItem, user}))
+        })
+    })
 })
 
 //Entrar al detalle de un item

@@ -21,13 +21,13 @@
 </div>
 
 <section class="updateItemStatus">
-    <form action="items/updateOwner" method="POST" enctype="multipart/form-data">
+    <form action="/items/updateOwner" method="POST">
         <div class="inputSections">
             <label for="idObjeto">Ingresa el código de identificación del objeto extraviado
-                <input type="text" placeholder="ID Objeto extraviado" type="text" name="idObjeto">
+                <input type="text" placeholder="ID Objeto extraviado" name="idObjeto">
             </label>
             <label for="emailUsuario">Ingresa el código de identificación del objeto extraviado
-                <input type="text" placeholder="email del us" type="text" name="emailUsuario">
+                <input type="text" placeholder="email del usuario" name="emailUsuario">
             </label>
         </div>
         <input id="submitChange" type="submit" value="enviar">
@@ -36,4 +36,7 @@
 
 <section>
     Product Information
+    {{user.username}}
+    {{thisItem.objeto}}
+
 </section>

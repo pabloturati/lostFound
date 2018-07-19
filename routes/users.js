@@ -9,7 +9,6 @@ function isLoggedIn(req,res,next){
     return res.redirect('/login?next=/profile')
 }
 
-
 function isLoggedInAdmin(req,res,next){
     if(req.isAuthenticated() && req.user.userType === "admin") return next();
     return res.redirect('/login?next=/profile')
@@ -21,6 +20,7 @@ router.get('/profile', isLoggedIn, (req,res,next)=>{
 
     User.findById(req.user._id)
     .populate('itemsFound')
+    .populate('lostItems')
     .then(user=>{
         //res.json(user)
         res.render('users/profile', user)
@@ -28,7 +28,7 @@ router.get('/profile', isLoggedIn, (req,res,next)=>{
 });
 
 router.get('/general', isLoggedIn, (req,res,next)=>{
-    item.find()
+    item.find({found: false})
     .then(items=>{
     res.render('users/general',{items});
     })

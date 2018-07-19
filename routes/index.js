@@ -6,7 +6,7 @@ const item = require('../models/Item')
 router.get('/', (req, res, next) => {
 
   
-  item.find()
+  item.find({found: false})
   .then(items=>{
     items.forEach(item=>{
       item.hashID = "#"+item._id;
