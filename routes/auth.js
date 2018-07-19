@@ -54,18 +54,16 @@ router.get('/login', isAuth, (req,res,next)=>{
     res.render('auth/login', {next:req.query.next})
 });
 
-router.get('/profile', isLoggedIn, (req,res,next)=>{
-    res.render('users/profile')
-   // req.users.photoURL = req.file.url;
-});
 
 router.post('/login', passport.authenticate('local'), (req,res,next)=>{
     if(req.body.next) res.redirect(req.body.next);
     req.app.locals.loggedUser = req.user;
 
-    if(req.user.userType === "admin") return res.send("Soy administrador")
-    
-    if(req.user.active==true)
+    if(req.user.userType === "admin") 
+    {
+         res.redirect('/administrator');
+    }
+    if(req.user.active == true)
     {
         res.redirect('/general')
     }
@@ -75,8 +73,6 @@ router.post('/login', passport.authenticate('local'), (req,res,next)=>{
         res.render('auth/login', req.body)
         console.log("entre")
         req.logout();
-        // res.redirect('/login')
-        //res.send("por favor confirma tu email")
     }
 });
 

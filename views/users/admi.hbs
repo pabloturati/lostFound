@@ -1,0 +1,39 @@
+<nav>
+    <a id="topNavA" href="/">
+        <div>
+            <img id="logo1"src="/images/logoMetro1.png" alt="LogoMetro" width="70">
+            <img src="/images/logoMetro2.png" alt="LogoMetrobus" width="70">
+            <h2 id="topName"> Sistema de Recuperación de Articulos Perdidos</h2>
+        </div>
+    </a>
+    <img src="/images/logoCdMx.png" alt="Ciudad de Mexico" width="200">
+    <ul>
+        <a  class="navBut" href="/general" id="registerButt" class="userAdmin"><li>General</li></a>
+        <a  class="navBut" href="/logout" id="registerButt" class="userAdmin"><li>Salir</li></a>
+    </ul>
+</nav>
+
+
+
+
+<div class="titleDiv">
+    <h2>Sistema de Identificación de Propietarios Objetos Extraviados</h2>
+</div>
+
+<section class="updateItemStatus">
+    <form action="items/updateOwner" method="POST" enctype="multipart/form-data">
+        <div class="inputSections">
+            <label for="idObjeto">Ingresa el código de identificación del objeto extraviado
+                <input type="text" placeholder="ID Objeto extraviado" type="text" name="idObjeto">
+            </label>
+            <label for="emailUsuario">Ingresa el código de identificación del objeto extraviado
+                <input type="text" placeholder="email del us" type="text" name="emailUsuario">
+            </label>
+        </div>
+        <input id="submitChange" type="submit" value="enviar">
+    </form>
+</section>
+
+<section>
+    Product Information
+</section>

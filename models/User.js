@@ -5,14 +5,18 @@ const Schema = mongoose.Schema;
 const passportLocalMongoose = require('passport-local-mongoose');
 
 const userSchema = new Schema({
+    ranking:{
+        type: Number,
+        default: 1
+    },
     photoURL: {
         type: String,
         default: 'http://botornot.co/blog/wp-content/uploads/2015/04/fakefollowers2-554x255.png'
     },
     userType:{
         type: String,
-        enum:["user","admin"],
-        default: "user"
+        enum:["Viajero Frecuente","admin"],
+        default: "Viajero Frecuente"
     },
     active: {
         type: Boolean,

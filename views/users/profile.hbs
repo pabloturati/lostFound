@@ -13,27 +13,95 @@
     </ul>
 </nav>
 
-<section class="headPerfil">
-    <article class="cover">
+<section id="profileSect">
+    <div class="headPerfil">  
         <figure>
-            <img id="photo" src="{{User.photoURL}}" alt="no hay nada">
+            <img id="photo" src="{{photoURL}}" alt="no hay nada">
         </figure>
-    </article>
-    <article>
-
-    </article>
+        <article class="cover">
+            <ul>
+                <li><b>Nombre de usuario:</b> {{username}}</li>
+                <li><b>Tipo de usuario:</b> {{userType}}</li>
+                <li><b>Correo electrónico:</b> {{email}}</li>
+            </ul>
+        </article>
+        <article class="cover2">
+            <h4><b>Ranking</b></h4>
+            <section class='rating-widget' id="starsBoxID">
+            <!-- Rating Stars Box -->
+                <div class='rating-stars text-center'>
+                    <ul id='stars'>
+                    <li class='star' title='Poor' data-value='1'>
+                        <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='Fair' data-value='2'>
+                        <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='Good' data-value='3'>
+                        <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='Excellent' data-value='4'>
+                        <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' title='WOW!!!' data-value='5'>
+                        <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    </ul>
+                </div>
+            </section>
+        </article>
+    </div>
+    <div class="bodyPerfil">
+        <article class="bodyIzq">
+            <h3>Artículos Reportados</h3>
+            {{#each itemsFound}}
+                <div class="itemDivProfile">
+                <img src="{{this.photoURL}}" alt="img" style="padding: 5px">
+                <p>
+                    <b>Objeto reportado:</b> {{this.objeto}} <br>
+                    <b>Medio de trasporte donde se encontró:</b> {{this.trasporte}} <br>
+                    <b>Línea dond ese encontró:</b> {{this.linea}} <br>
+                    <b>Estacion más cercana:</b> {{this.estacion}}
+                    <b>Posición actual:</b> {{this.currlocation}}
+                    <b>¿Ya fue recuperado?</b> {{this.found}}
+                </p>
+                </div>
+            {{/each}}                      
+        </article>
+        <article class="bodyDer">
+            <h3>Artículos Recuperados</h3>
+            {{#each itemsFound}}
+                <div class="itemDivProfile">
+                {{this.objeto}}
+                </div>
+            {{/each}}   
+        </article>
+    </div>
 </section>
 
-<section class="bodyPerfil">
-    <article class="bodyIzq">
-      
-    </article>
-    <article class="bodyDer">
-        
-    </article>
-</section>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
 
+
+<script>
+    $(document).ready(function(){
+         /* 2. Action to perform on click */
+        $('#stars li').on('click', function(){
+            
+        });
+
+        var onStar = "{{ranking}}";
+            var stars = $('#stars li').parent().children('li.star');
+            
+            for (i = 0; i < onStar; i++) {
+            $(stars[i]).addClass('selected');
+            }
+    });
+</script>
+
+<script>
+
+</script>
 
 
 

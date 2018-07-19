@@ -9,38 +9,23 @@ function isLoggedIn(req,res,next){
     return res.redirect('/login?next=/profile')
 }
 
-router.get('/users/:id', (req,res,next)=>{
-    User.findById(req.params.id)
 
+function isLoggedInAdmin(req,res,next){
+    if(req.isAuthenticated() && req.user.userType === "admin") return next();
+    return res.redirect('/login?next=/profile')
+}
+
+
+//User profile
+router.get('/profile', isLoggedIn, (req,res,next)=>{
+
+    User.findById(req.user._id)
+    .populate('itemsFound')
     .then(user=>{
-        if(!user) res.redirect('/users');
+        //res.json(user)
         res.render('users/profile', user)
-        req.User.photoURL = req.file.url;
     })
-    .catch(e=>next(e))
-})
-
-router.get('/users', (req,res, next)=>{
-    res.render('users/search')
 });
-
-router.post('/users', (req,res, next)=>{
-    User.find({username: {$regex:req.body.username, $options:'i'}})
-    .then(users=>{
-        res.render('users/search', {users});
-    })
-    .catch(e=>next(e))
-});
-
-// router.post('/profile', isLoggedIn, uploadCloud.single('foto'), (req, res, next)=>{
-//     if(!req.file) redirect('/profile');
-//     req.user.photoURL = req.file.url;
-//     User.findOneAndUpdate(req.user._id, req.user, {new:true})
-//     .then(user=>{
-//         res.redirect('/profile')
-//     })
-//     .catch(e=>next(e))
-// });
 
 router.get('/general', isLoggedIn, (req,res,next)=>{
     item.find()
@@ -49,5 +34,10 @@ router.get('/general', isLoggedIn, (req,res,next)=>{
     })
     .catch(e=>console.log(e));
 });
+
+router.get('/administrator', isLoggedInAdmin, (req,res)=>{
+    res.render('users/admi');
+})
+
 
 module.exports = router;

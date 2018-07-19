@@ -74,7 +74,7 @@ app.use(passport.session());
 const index = require('./routes/index');
 const auth = require('./routes/auth');
 const users = require('./routes/users');
-const items = require('./routes/items')
+const items = require('./routes/items');
 
 app.use('/', users);
 app.use('/', auth);
