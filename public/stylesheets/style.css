@@ -288,4 +288,36 @@ div.verticalSections {
   width: 200px;
   height: 50px; }
 
+.headPerfil {
+  display: flex;
+  flex-direction: row;
+  background-color: black;
+  height: 300px;
+  width: 100%; }
+
+.bodyPerfil {
+  display: flex;
+  flex-direction: row;
+  height: 537px; }
+
+.bodyIzq {
+  width: 50%;
+  background-color: red;
+  height: 537px; }
+
+.bodyDer {
+  width: 50%;
+  background-color: yellow;
+  height: 537px; }
+
+.cover figure img {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  margin: 0;
+  padding: 0;
+  border: 8px solid white;
+  z-index: 9999;
+  background-color: aqua; }
+
 /*# sourceMappingURL=style.css.map */

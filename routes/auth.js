@@ -56,6 +56,7 @@ router.get('/login', isAuth, (req,res,next)=>{
 
 router.get('/profile', isLoggedIn, (req,res,next)=>{
     res.render('users/profile')
+   // req.users.photoURL = req.file.url;
 });
 
 router.post('/login', passport.authenticate('local'), (req,res,next)=>{

@@ -15,6 +15,7 @@ router.get('/users/:id', (req,res,next)=>{
     .then(user=>{
         if(!user) res.redirect('/users');
         res.render('users/profile', user)
+        req.User.photoURL = req.file.url;
     })
     .catch(e=>next(e))
 })
