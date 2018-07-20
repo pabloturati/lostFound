@@ -48,7 +48,7 @@
             </div>
         </div>
         <div class="mapItem">
-            {{item.currlocation}}
+            <a href="https://maps.googleapis.com/maps/api/staticmap?center=metro+{{item.estacion}},Mexico&size=1000x900&zoom=16&key=AIzaSyALDtubZlaBWtfejnW6E0izt51Mf8i3Sj8"> <img src="https://maps.googleapis.com/maps/api/staticmap?center=metro+{{item.estacion}},Mexico&size=250x250&zoom=16&key=AIzaSyALDtubZlaBWtfejnW6E0izt51Mf8i3Sj8" alt="no existe"> </a>
         </div>
     </div>
 </section>
@@ -56,3 +56,6 @@
 <a href="/general" id="addNew">
     <h3>Da click aquí para regresar al listado</h3>
 </a>
+
+ 
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALDtubZlaBWtfejnW6E0izt51Mf8i3Sj8"></script>
