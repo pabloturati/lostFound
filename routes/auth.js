@@ -1,7 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const User = require('../models/User');
-
+const passportFacebook = require('../helpers/facebook');
 const passport = require('passport');
 const sendActivationLink = require('../helpers/mailer').sendActivationLink;
 
@@ -94,6 +94,17 @@ router.get('/activation/:id', (req,res)=>{
         })
         .catch(e=>console.log(e))
 })
+router.get('/auth/facebook', passportFacebook.authenticate('facebook'));
+
+router.get('/facebook/callback',
+passportFacebook.authenticate('facebook', { failureRedirect: '/login' }),
+function(req, res) {
+  res.redirect('/user');
+});
+
+// router.get('/facebook',
+//   passport.authenticate('facebook', { scope: 'read_stream' })
+// );
 
 
 module.exports = router;
