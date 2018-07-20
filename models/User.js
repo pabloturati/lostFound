@@ -7,7 +7,7 @@ const passportLocalMongoose = require('passport-local-mongoose');
 const userSchema = new Schema({
     ranking:{
         type: Number,
-        default: 1,
+        default: 0,
         max: 5
     },
     photoURL: {

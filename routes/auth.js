@@ -60,7 +60,6 @@ router.post('/login', passport.authenticate('local'), (req,res,next)=>{
     if(req.body.next) res.redirect(req.body.next);
     
     req.app.locals.loggedUser = req.user;
-
  
     if(req.user.userType === "admin") 
     {
@@ -95,12 +94,16 @@ router.get('/activation/:id', (req,res)=>{
         })
         .catch(e=>console.log(e))
 })
-router.get('/facebook', passportFacebook.authenticate('facebook'));
+
+router.get('/facebook', passportFacebook.authenticate('facebook'),(req,res)=>{
+    console.log("entre aqu al face")
+});
 
 router.get('/facebook/callback',
-passportFacebook.authenticate('facebook', { failureRedirect: '/login' }),
+passportFacebook.authenticate('facebook', { failureRedirect: '/' }),
 function(req, res) {
-  res.redirect('/general');
+    console.log("entre al segundo")
+    res.redirect('/');
 });
 
 module.exports = router;

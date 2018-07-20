@@ -22,7 +22,6 @@ router.get('/profile', isLoggedIn, (req,res,next)=>{
     .populate('itemsFound')
     .populate('lostItems')
     .then(user=>{
-        //res.json(user)
         res.render('users/profile', user)
     })
 });
