@@ -4,6 +4,7 @@ const User = require('../models/User');
 const passportFacebook = require('../helpers/facebook');
 const passport = require('passport');
 const sendActivationLink = require('../helpers/mailer').sendActivationLink;
+const fetch = require('node-fetch')
 
 const errDict = {
     UserExistsError: "Este usuario ya existe"
@@ -94,17 +95,12 @@ router.get('/activation/:id', (req,res)=>{
         })
         .catch(e=>console.log(e))
 })
-router.get('/auth/facebook', passportFacebook.authenticate('facebook'));
+router.get('/facebook', passportFacebook.authenticate('facebook'));
 
 router.get('/facebook/callback',
 passportFacebook.authenticate('facebook', { failureRedirect: '/login' }),
 function(req, res) {
-  res.redirect('/user');
+  res.redirect('/general');
 });
-
-// router.get('/facebook',
-//   passport.authenticate('facebook', { scope: 'read_stream' })
-// );
-
 
 module.exports = router;

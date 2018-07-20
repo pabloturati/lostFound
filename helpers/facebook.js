@@ -1,16 +1,17 @@
-var passport = require('passport')
-  , FacebookStrategy = require('passport-facebook').Strategy;
-  const User             = require('../models/User');
+const passport = require('passport');
+const FacebookStrategy = require('passport-facebook').Strategy;
+const User             = require('../models/User');
 
 passport.use(new FacebookStrategy({
-    clientID: "402885660118014",
-    clientSecret: "3b04ef42a435a9ceafe38ca2422ed42e",
+    clientID: "1799675690120298",
+    clientSecret: "3a65a6c49cece5809e8a79ebed0a6ec3",
     callbackURL: "http://localhost:3000/facebook/callback"
   },
   function(accessToken, refreshToken, profile, cb) {
-    User.findOrCreate({ username: profile.displayName }, function(err, user) {
-      if (err) { return done(err); }
-      done(null, user);
+    console.log(profile);
+    User.create({ username: profile.displayName }, function (err, user) {
+      if (err) { return cb(err); }
+      cb(null, user);
     });
   }
 ));
